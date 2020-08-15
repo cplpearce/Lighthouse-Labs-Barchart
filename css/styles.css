@@ -74,12 +74,9 @@ td {
   display: none;
 }
 #y-axis-label {
-  position: sticky;
+  position: absolute;
   writing-mode: vertical-rl;
-  text-orientation: upright;
   position: -webkit-sticky;
-  display: none;
-  top: 20%;
 }
 .option-input {
   width: 100%;

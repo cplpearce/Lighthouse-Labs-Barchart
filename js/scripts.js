@@ -52,10 +52,6 @@ function drawBarChartTest(data) {
   // report to console what's going on
   console.log('Options currently set: ', options);
 
-  // bring the axis labels up
-  document.getElementById('y-axis-label').style.display = 'inherit';
-  document.getElementById('y-axis-label').innerHTML = options.yaxis;
-
   // clean the chart container
   chartContainer.innerHTML = '';
 
@@ -67,13 +63,25 @@ function drawBarChartTest(data) {
 
   // create the Title!
   let title = document.createElement('div');
-  title.innerHTML = options.title
+  title.innerHTML = options.title;
   title.style.position = 'relative';
   title.style.margin = 'auto';
   title.style.fontWeight = 'bold';
   title.style.fontSize = '24px';
   title.style.textShadow = '-1px 0 white, 0 1px white, 1px 0 white, 0 -1px white';
   chartContainer.appendChild(title);
+
+  // create the y axis label
+  let yaxis = document.createElement('div');
+  yaxis.innerHTML = options.yaxis;
+  yaxis.id = 'y-axis-label';
+  yaxis.style.left = '5px';
+  yaxis.style.fontSize = '15px';
+  yaxis.style.marginTop = 'auto';
+  yaxis.style.top = '40%';
+  yaxis.style.fontWeight = 'bold';
+  yaxis.style.textShadow = '-1px 0 white, 0 1px white, 1px 0 white, 0 -1px white';
+  chartContainer.appendChild(yaxis);
 
   // create the bars
   for (let [i, val] of d.entries()) {
@@ -99,6 +107,7 @@ function drawBarChartTest(data) {
   xAxisDiv.style.position = 'relative';
   xAxisDiv.style.margin = 'auto';
   xAxisDiv.style.fontWeight = 'bold';
+  xAxisDiv.style.fontSize = '15px';
   xAxisDiv.style.textShadow = '-1px 0 white, 0 1px white, 1px 0 white, 0 -1px white';
   chartContainer.appendChild(xAxisDiv);
 
