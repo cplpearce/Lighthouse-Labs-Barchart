@@ -1,7 +1,8 @@
-
+html {
+  font-family: 'Recursive', sans-serif;
+}
 body {
   background-color: #313131;
-  font-family: 'Recursive', sans-serif;
   padding-top: 40px;
 }
 nav {
@@ -9,8 +10,8 @@ nav {
   border-top-right-radius: 25px;
   margin-left: 10%;
   margin-right: 10%;
-  padding-left: 40px;
-  padding-right: 40px;
+  padding-left: 20px;
+  padding-right: 20px;
   padding-top: 20px;
   padding-bottom: 20px;
   height: 40%;
@@ -21,20 +22,23 @@ input {
   font-family: 'Recursive', sans-serif;
 }
 tr {
-  padding: 0;
+  padding: 0px;
 }
 td {
   padding: 1px;
 }
 #barchart-container {
+  position: relative;
   background-color:#525252;
-  height: 555px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   margin-left: 10%;
   margin-right: 10%;
   border-bottom-left-radius: 25px;
   border-bottom-right-radius: 25px;
-  padding: 20px;
-
+  padding: 25px;
+  overflow: auto;
 }
 #create-chart-button {
   padding-top: 15px;
@@ -47,9 +51,6 @@ td {
   width: 100%;
 }
 #options-table {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
   width: 100%;
 }
 #data-input {
@@ -61,25 +62,40 @@ td {
   color: white;
   padding: 5px;
   text-align: center;
-  text-decoration: none;
-  display: inline-block;
+  display: grid;
+  grid-auto-flow: column;
 }
 #option-labels {
   font-size: small;
 }
+#x-axis-label {
+  position: relative;
+  left: 50%;
+  display: none;
+}
+#y-axis-label {
+  position: sticky;
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  position: -webkit-sticky;
+  display: none;
+  top: 20%;
+}
 .option-input {
   width: 100%;
-  font-family: 'Recursive', sans-serif;
-
+  font-size: small;
 }
 .option-select {
-  width: 160px;
-  font-family: 'Recursive', sans-serif;
+  width: 120px;
 }
 .bar {
-  display: grid;
-  grid-auto-rows: 550px;
+  padding-left: 2px;
+  display: table;
+  vertical-align: middle;
 }
 .info-cell {
   padding-bottom: 1px;
+}
+.options-label {
+  text-align:center;
 }

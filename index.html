@@ -17,31 +17,35 @@
   <nav>
     <form>
       <table id="data-table">
-        <tr><td><p>Data Array</p></td></tr>
+        <tr><td><span>Data Array</span></td></tr>
         <tr><td><input type="text" id="data-input" name="data" placeholder="Comma, Separated, Values" value="1, 2, 3, 4, 5, 6"></td></tr>
       </table>
       <br>
       <table id="options-table">
-        <tr><p>Bar Chart Options</p></tr>
+        <tr><span>Bar Chart Options</span></tr>
         <tr id="option-labels">
-          <td>Width (%)</td>
+          <td>Width x Value / Values (%)</td>
           <td>Height (px)</td>
           <td>Bar Spacing (px)</td>
           <td>X Axis Label</td>
           <td>Y Axis Label</td>
+          <td>Chart Title</td>
+          <td>Text Color</td>
           <td>Bar Label </td>
         </tr>
         <tr id="option-selects">
-          <td><input type="text" class="option-input" id="option-width" placeholder="Width (%)"></td>
-          <td><input type="text" class="option-input" id="option-height" placeholder="Height (px)"></td>
-          <td><input type="text" class="option-input" id="option-spacing" placeholder="Bar Spacing (px)"></td>
-          <td><input type="text" class="option-input" id="option-x-axis" placeholder="X Axis Label"></td>
-          <td><input type="text" class="option-input" id="option-y-axis" placeholder="Y Axis Label"></td>
+          <td><input type="text" class="option-input" id="option-width" value="100" placeholder="Width (%)"></td>
+          <td><input type="text" class="option-input" id="option-height" value="20" placeholder="Height (px)"></td>
+          <td><input type="text" class="option-input" id="option-spacing" value="5" placeholder="Bar Spacing (px)"></td>
+          <td><input type="text" class="option-input" id="option-x-axis" value="Count" placeholder="X Axis Label"></td>
+          <td><input type="text" class="option-input" id="option-y-axis" value="Values" placeholder="Y Axis Label"></td>
+          <td><input type="text" class="option-input" id="option-title" value="Bar Chart" placeholder="Title"></td>
+          <td><input type="text" class="option-input" id="option-text-color" value="#000000" placeholder="Text Color (#00000F)"></td>
           <td>
-            <select type="text" class="option-select" id="option-bar-label" placeholder="Bar Label Placement">
-              <option value="Left">Left</option>
-              <option value="Left">Center</option>
-              <option value="Left">Right</option>
+            <select type="text" class="option-select" id="option-text-pos" placeholder="Bar Label Placement">
+              <option value="left">Left</option>
+              <option value="center">Center</option>
+              <option value="right">Right</option>
             </select>
           </td>
         </tr>
@@ -49,7 +53,13 @@
     </form>
   </nav>
 
-  <div id="barchart-container">
+  <div id="barchart-box">
+    <div id="barchart-container">
+    </div>
+    <div id="y-axis-label">
+      Y Axis
+    </div>
+
   </div>
 
   <div id="create-chart-button">

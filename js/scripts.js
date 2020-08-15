@@ -6,6 +6,7 @@ function drawBarChart(data, options, element) {
   barDiv = document.getElementById("barchart-wrapper");
 }
 */
+const chartContainer = document.getElementById('barchart-container');  // bar holder
 
 let colors = [
   '#A20021',
@@ -26,15 +27,46 @@ let colors = [
 ];
 
 function drawBarChartTest(data) {
-  const chartContainer = document.getElementById('barchart-container');
+
+  // collect the set options
+  let options = {
+    width : document.getElementById('option-width').value,
+    height : document.getElementById('option-height').value,
+    spacing : document.getElementById('option-spacing').value,
+    xaxis : document.getElementById('option-x-axis').value,
+    yaxis : document.getElementById('option-y-axis').value,
+    title : document.getElementById('option-title').value,
+    text : document.getElementById('option-text-color').value,
+    textAlign : $("#option-text-pos :selected").val()
+  };
+
+  // report to console what's going on
+  console.log('Options currently set: ', options);
+
+  // bring the axis labels up
+  document.getElementById('y-axis-label').style.display = 'inherit';
+  document.getElementById('y-axis-label').innerHTML = options.yaxis;
+
   // clean the chart container
   chartContainer.innerHTML = '';
+
   // make some divs 'yo
   let d = data.split(',');
   d.forEach(v => v.trim());
   d = d.map(v => Number(v)).sort((a, b) => a - b);
   console.log(d);
 
+  // create the Title!
+  let title = document.createElement('div');
+  title.innerHTML = options.title
+  title.style.position = 'relative';
+  title.style.margin = 'auto';
+  title.style.fontWeight = 'bold';
+  title.style.fontSize = '24px';
+  title.style.textShadow = '-1px 0 white, 0 1px white, 1px 0 white, 0 -1px white';
+  chartContainer.appendChild(title);
+
+  // create the bars
   for (let [i, val] of d.entries()) {
     console.log(val);
     let barDiv = document.createElement('div');
@@ -42,13 +74,23 @@ function drawBarChartTest(data) {
     barDiv.innerHTML = val;
     barDiv.className = 'bar';
     barDiv.style.backgroundColor = colors[i];
-    barDiv.style.width = (3 * val) + '%';
-    barDiv.style.height = '20px';
-    barDiv.style.paddingTop = '20px';
-    barDiv.style.paddingBottom = '20px';
-    barDiv.style.textAlign = 'left';
-    barDiv.style.paddingBottom = '20px';
+    barDiv.style.width = ((options.width * val)/(d.length)) + '%';
+    barDiv.style.height = options.height + 'px';
+    barDiv.style.margin = options.spacing + 'px';
+    barDiv.style.color = options.text;
+    barDiv.style.textAlign = options.textAlign;
+    barDiv.style.lineHeight = options.height + 'px';
     barDiv.style.textShadow = '-1px 0 white, 0 1px white, 1px 0 white, 0 -1px white';
     chartContainer.appendChild(barDiv);
   }
+
+  // create the x axis label
+  let xAxisDiv = document.createElement('div');
+  xAxisDiv.innerHTML = options.xaxis
+  xAxisDiv.style.position = 'relative';
+  xAxisDiv.style.margin = 'auto';
+  xAxisDiv.style.fontWeight = 'bold';
+  xAxisDiv.style.textShadow = '-1px 0 white, 0 1px white, 1px 0 white, 0 -1px white';
+  chartContainer.appendChild(xAxisDiv);
+
 }
