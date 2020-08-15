@@ -64,7 +64,9 @@ td {
   text-decoration: none;
   display: inline-block;
 }
-
+#option-labels {
+  font-size: small;
+}
 .option-input {
   width: 100%;
   font-family: 'Recursive', sans-serif;
@@ -77,4 +79,7 @@ td {
 .bar {
   display: grid;
   grid-auto-rows: 550px;
+}
+.info-cell {
+  padding-bottom: 1px;
 }

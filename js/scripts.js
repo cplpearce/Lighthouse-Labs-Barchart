@@ -23,7 +23,7 @@ let colors = [
   '#473198',
   '#4A0D67',
   '#ADFC92'
-]
+];
 
 function drawBarChartTest(data) {
   const chartContainer = document.getElementById('barchart-container');
@@ -38,6 +38,7 @@ function drawBarChartTest(data) {
   for (let [i, val] of d.entries()) {
     console.log(val);
     let barDiv = document.createElement('div');
+    document.getElementById("mydiv").offsetWidth
     barDiv.id = val;
     barDiv.innerHTML = val;
     barDiv.className = 'bar';
