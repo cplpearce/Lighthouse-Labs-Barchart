@@ -9,7 +9,6 @@ function drawBarChart(data, options, element) {
 const chartContainer = document.getElementById('barchart-container');  // bar holder
 
 let colors = [
-  '#A20021',
   '#F52F57',
   '#F79D5C',
   '#F3752B',
@@ -23,7 +22,17 @@ let colors = [
   '#9BF3F0',
   '#473198',
   '#4A0D67',
-  '#ADFC92'
+  '#ADFC92',
+  '#808080',
+  '#2E86C1',
+  '#16A085',
+  '#DA70D6',
+  '#FFC0CB',
+  '#FAEBD7',
+  '#708090',
+  '#73C6B6',
+  '#5499C7',
+  '#BB8FCE'
 ];
 
 function drawBarChartTest(data) {
@@ -73,7 +82,7 @@ function drawBarChartTest(data) {
     barDiv.id = val;
     barDiv.innerHTML = val;
     barDiv.className = 'bar';
-    barDiv.style.backgroundColor = colors[i];
+    barDiv.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
     barDiv.style.width = ((options.width * val)/(d.length)) + '%';
     barDiv.style.height = options.height + 'px';
     barDiv.style.margin = options.spacing + 'px';
