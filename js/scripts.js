@@ -38,7 +38,6 @@ function drawBarChartTest(data) {
   for (let [i, val] of d.entries()) {
     console.log(val);
     let barDiv = document.createElement('div');
-    document.getElementById("mydiv").offsetWidth
     barDiv.id = val;
     barDiv.innerHTML = val;
     barDiv.className = 'bar';
